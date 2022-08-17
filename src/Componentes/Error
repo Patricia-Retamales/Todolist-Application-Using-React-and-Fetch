@@ -1,0 +1,10 @@
+// Fetch data desde endpoint
+let url = 'https://swapi.dev/api/people/'; // el endpoint (url)
+
+fetch(url) // aca se llame el funcion fetch, y se agrega URL como parametro
+.then((response) => response.json()) // Se retorna un response / response.json() ... response se convierte a formato json
+.then((data) => {
+console.log(data);
+
+}) // aca se muestra tu data
+.catch((err) => console.log(err)); // Catch, para si hay un error
