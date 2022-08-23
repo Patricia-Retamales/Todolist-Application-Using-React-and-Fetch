@@ -14,13 +14,13 @@ const App = () => {
 
   useEffect(() => {
     agregarput();
-
+    
   }, [frases]);
 
 
 
-  async function getFrases() {
-    const resp = await fetch('https://assets.breatheco.de/apis/fake/todos/user/usernamenpatriciaretamales', {
+async function getFrases () {
+  const resp = await fetch('http://assets.breatheco.de/apis/fake/todos/user/patricia', {
       method: "GET",
 
       headers: {
@@ -55,7 +55,7 @@ const App = () => {
     let newArray = frases.filter((item, indice) => indice !== indexfrases);
 
     setFrases(newArray);
-    fetch('https://assets.breatheco.de/apis/fake/todos/user/usernamepatriciaretamales', {
+    fetch('http://assets.breatheco.de/apis/fake/todos/user/patricia', {
       method: "PUT",
       body: JSON.stringify(
         frases.map(item => {
@@ -90,13 +90,13 @@ const App = () => {
       });
 
   }
-  console.log(frases)
+console.log(frases)
 
   const agregarFrases = event => {
 
     setFrase(event.target.value);
     console.log(frases)
-    /* fetch('https://assets.breatheco.de/apis/fake/todos/user/usernamepatriciaretamales', {
+    /* fetch('http://assets.breatheco.de/apis/fake/todos/user/patricia', {
       method: "PUT",
       body: JSON.stringify(
         frases.map(item => {
@@ -139,7 +139,7 @@ const App = () => {
   const eliminarTodo = () => {
     setFrases([]);
 
-    fetch('https://assets.breatheco.de/apis/fake/todos/user/usernamepatriciaretamales', {
+    fetch('http://assets.breatheco.de/apis/fake/todos/user/patricia', {
       method: "DELETE",
       body: JSON.stringify(),
       headers: {
@@ -171,7 +171,7 @@ const App = () => {
 
 
   const agregarput = () => {
-    fetch('https://assets.breatheco.de/apis/fake/todos/user/usernamepatriciaretamales', {
+  fetch('https://assets.breatheco.de/apis/fake/todos/user/patricia', {
       method: "PUT",
       body: JSON.stringify(
         frases.map(item => {
@@ -204,10 +204,10 @@ const App = () => {
       .catch(error => {
         //manejo de errores
         console.log(error);
-      });
+      }); 
 
 
-  }
+}
 
 
 
@@ -221,7 +221,7 @@ const App = () => {
 
   return (
     <div>
-      <button className='buton' onClick={() => { eliminarTodo() }}>eliminarTodo</button>
+      <button className='buton'  onClick={() => { eliminarTodo() }}>Eliminar Todo</button>
       <form
         onSubmit={evento => {
           setFrases(frases.concat(frase));
@@ -232,7 +232,7 @@ const App = () => {
         <input type="text" name="datos" value={frase} onChange={evento => { agregarFrases(evento) }} />
 
       </form>
-
+<h1 className='titulo'> TODO LIST </h1>
       {frases.map((frase, index) => {
         return (
           <ul
